@@ -4,6 +4,7 @@
 
 #include <assert.h>
 #include <dirent.h>
+#include <errno.h>
 #include <linux/limits.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -166,13 +167,15 @@ main (int argc, char *argv[])
 
   DIR *dir = NULL;
   struct dirent *entry;
-  char **paths = calloc (500, sizeof (char *));
 
   if ((dir = opendir (directory)) == NULL)
     {
-      printf ("failed to open specified directory %s\n", directory);
-      perror ("");
+      // clang-format off
+      printf ("failed to open specified directory %s: %s\n",
+              directory,
+              strerror (errno));
       exit (EXIT_FAILURE);
+      // clang-format on
     }
 
   chdir (directory);
@@ -236,7 +239,7 @@ main (int argc, char *argv[])
 
       int d = 0;
       char *b = hashbuf;
-      for (; d < 16; d++)
+      for (; d < 16; d++) // ps..im not this clever; stackoverflow ftw :3
         b += sprintf (b, "%02x", digest[d]);
 
       files.data[i].hash = strdup (hashbuf);
