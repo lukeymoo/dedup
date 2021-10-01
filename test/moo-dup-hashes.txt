@@ -1,0 +1,5 @@
+/fakedir/test/file1,5d41402abc4b2a76b9719d911017c592
+/fakedir/test/file2,7d793037a0760186574b0282f2f435e7
+/fakedir/test/file5,7d793037a0760186574b0282f2f435e7
+/fakedir/test/file3,5eb63bbbe01eeed093cb22bb8f5acdc3
+/fakedir/test/file4,5d41402abc4b2a76b9719d911017c592

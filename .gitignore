@@ -1,0 +1,13 @@
+compile_commands.json
+*.swp
+.clangd
+.clang-format
+tags
+.vscode
+.cache
+.gitattributes
+*.ini
+*.spv
+*.o
+*.a
+*.so
